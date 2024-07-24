@@ -1014,6 +1014,7 @@ macro_rules! construct_uint {
 			}
 
 			/// Fast exponentiation by squaring. Returns result and overflow flag.
+			#[cfg(feature = "enable-power")]
 			pub fn overflowing_pow(self, expon: Self) -> (Self, bool) {
 				if expon.is_zero() { return (Self::one(), false) }
 
@@ -1040,6 +1041,7 @@ macro_rules! construct_uint {
 			}
 
 			/// Checked exponentiation. Returns `None` if overflow occurred.
+			#[cfg(feature = "enable-power")]
 			pub fn checked_pow(self, expon: $name) -> Option<$name> {
 				match self.overflowing_pow(expon) {
 					(_, true) => None,

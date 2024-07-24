@@ -21,6 +21,7 @@ arbitrary = { version = "1.0", optional = true }
 [features]
 default = ["std"]
 std = ["byteorder/std", "crunchy/std", "hex/std"]
+enable-power = []
 
 [[example]]
 name = "modular"
